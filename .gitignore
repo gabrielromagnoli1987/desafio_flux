@@ -3,3 +3,4 @@
 .git
 *.pyc
 local_settings.py
+.settings
