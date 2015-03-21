@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from desafio_flux.desafio.apps.usergroups.models import UserGroup #esto es un asco, ver como cambiarlo
+
+from usergroups.models import UserGroup
 
 # Create your models here.
 
@@ -26,4 +27,5 @@ class Document(models.Model):
         return self.name
     
     class Meta():
+        
         app_label = 'documents'
