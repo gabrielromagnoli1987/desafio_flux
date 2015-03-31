@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Documents{% endblock %}
+
+{% block content %}
+{% for document in documents %}
+    <p>{{ document.name }}</p>
+{% endfor %}
+{% endblock %}

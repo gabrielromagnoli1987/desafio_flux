@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
+from documents.models import Document 
+
 # Create your views here.
-def index(request):
-    return render(request, "Hello, world. You're at the polls index.")
+
+def documents(request):
+    documents = Document.objects.all()    
+    return render(request, "documents/documents.html", {'documents': documents})
 
 def detail(request, document_id):
     pass
