@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from documents.models import Document 
 
@@ -9,4 +9,5 @@ def documents(request):
     return render(request, "documents/documents.html", {'documents': documents})
 
 def detail(request, document_id):
-    pass
+    document = get_object_or_404(Document, pk=document_id)
+    return render(request, "documents/detail.html", {'document': document})
