@@ -4,6 +4,9 @@
 
 {% block content %}
 {% for document in documents %}
-    <p><a href="{% url 'documents:detail' document.id %}">{{ document.name }}</a></p>
+    <p><a href="{% url 'documents:detail' document.id %}">{{ document.name }}</a></p>    
 {% endfor %}
+
+<p><a href="{% url 'documents:add' %}">Agregar documento nuevo</a></p>
+
 {% endblock %}
