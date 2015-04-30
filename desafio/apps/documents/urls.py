@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
 from documents import views
-from models import Document
+
 
 urlpatterns = patterns('',
     url(r'^$', views.documents, name='documents'),

@@ -1,10 +1,12 @@
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 from usergroups.models import UserGroup
 
-# Create your models here.
 
 
 class Document(models.Model):
@@ -25,6 +27,10 @@ class Document(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.date <= now
     
     class Meta():
         
