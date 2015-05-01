@@ -4,7 +4,12 @@
 
 {% block content %}
 {% for document in documents %}
-    <p><a href="{% url 'documents:detail' document.id %}">{{ document.name }}</a></p>    
+    <p>Name: {{ document.name }}</p>
+    <p>Date: {{ document.date }}</p>
+    <p>Type: {{ document.type }}</p>
+    <p>Owner: {{ document.owner }}</p>
+    <p><a href="{{ document.file.url }}">Download</a></p>
+    <p><a href="{% url 'documents:detail' document.id %}">Detail</a></p>
 {% endfor %}
 
 <p><a href="{% url 'documents:add' %}">Add</a></p>

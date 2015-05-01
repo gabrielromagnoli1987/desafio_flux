@@ -4,11 +4,9 @@
 
 {% block content %}
 
-    <p>{{ document.name }}</p>
-    <p>{{ document.description }}</p>
-    <p>{{ document.type }}</p>
-    <p>{{ document.description }}</p>
+    <p><a href="{{ document.file.url }}">{{ document.name }}</a></p>
     <p>{{ document.date }}</p>
     <p>{{ document.owner }}</p>
+    <p>{{ document.description }}</p>
 
 {% endblock %}
