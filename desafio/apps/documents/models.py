@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 
 from django.db import models
@@ -22,8 +23,8 @@ class Document(models.Model):
     type = models.CharField(max_length=7, choices=TYPES)
     date = models.DateTimeField()
     owner = models.ForeignKey(User)
-    user_group = models.ForeignKey(UserGroup)
-    path = models.URLField()
+    user_group = models.ForeignKey(UserGroup, blank=True)
+    file = models.FileField()
     
     def __str__(self):
         return self.name
