@@ -3,9 +3,10 @@
 {% block title %}New Document{% endblock %}
 
 {% block content %}
+{% load bootstrap %}
 
 <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
-	{{ form }}
+	{{ form | bootstrap }}
 	<input type="submit" value="Submit"/>
 </form>
 
