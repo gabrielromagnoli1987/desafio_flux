@@ -4,9 +4,17 @@
 
 {% block content %}
 
-    <p><a href="{{ document.file.url }}">{{ document.name }}</a></p>
-    <p>{{ document.date }}</p>
-    <p>{{ document.owner }}</p>
-    <p>{{ document.description }}</p>
+	<table class="table table-striped">
+		<tr>
+	    	<th>Name</th>
+		    <th>Date</th>		    
+		    <th>Owner</th>
+		    <th>Description</th>
+	  	</tr>
+    	<td><a href="{{ document.file.url }}">{{ document.name }}</a></td>
+	    <td>{{ document.date }}</td>
+	    <td>{{ document.owner }}</td>
+	    <td>{{ document.description }}</td>
+	</table>
 
 {% endblock %}

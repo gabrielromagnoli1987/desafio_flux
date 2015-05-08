@@ -1,5 +1,7 @@
-/*
 body {
-    background: white url("images/background2.jpg") repeat;
+  padding-top: 50px;
 }
-*/
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}

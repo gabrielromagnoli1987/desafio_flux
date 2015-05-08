@@ -3,15 +3,25 @@
 {% block title %}Documents{% endblock %}
 
 {% block content %}
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Owner</th>
+  </tr>
 {% for document in documents %}
-    <p>Name: {{ document.name }}</p>
-    <p>Date: {{ document.date }}</p>
-    <p>Type: {{ document.type }}</p>
-    <p>Owner: {{ document.owner }}</p>
-    <p><a href="{{ document.file.url }}">Download</a></p>
-    <p><a href="{% url 'documents:detail' document.id %}">Detail</a></p>
+	<tr>
+	    <td>{{ document.name }}</td>
+	    <td>{{ document.date }}</td>
+	    <td>{{ document.type }}</td>
+	    <td>{{ document.owner }}</td>
+	    <td><a href="{{ document.file.url }}">Download</a></td>
+	    <td><a href="{% url 'documents:detail' document.id %}">Detail</a></td>
+  	</tr>
 {% endfor %}
+</table>
 
-<p><a href="{% url 'documents:add' %}">Add</a></p>
+<p><a href="{% url 'documents:add' %}" class="btn btn-default">Add</a></p>
 
 {% endblock %}
