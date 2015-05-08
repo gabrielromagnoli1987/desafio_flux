@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}New Document{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block content %}
 {% load bootstrap %}
 
 <div class="">
-	<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
-		{{ form | bootstrap }}
+	<form method="post" action="">{% csrf_token %}
+		{{ user_form | bootstrap }}
 		<input type="submit" value="Submit"/>
 	</form>
 </div>
