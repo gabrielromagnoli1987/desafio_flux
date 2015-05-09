@@ -38,7 +38,16 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home:home' %}">Home</a></li>
-            <li><a href="{% url 'documents:documents' %}">Documents</a></li>            
+            <li><a href="{% url 'documents:documents' %}">Documents</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+		        <li>Welcome, {{ user.username }}. Thanks for logging in.</li>
+		        <li><a href="{% url 'account:logout' %}?next={% url 'home:home' %}">Logout</a></li>
+		    {% else %}
+		        <li><a href="{% url 'account:register' %}">Register</a></li>
+		        <li><a href="{% url 'account:login' %}?next={% url 'home:home' %}">Login</a></li>
+		    {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
