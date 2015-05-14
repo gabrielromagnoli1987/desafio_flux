@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}New Document{% endblock %}
+{% block title %}New Usergroup{% endblock %}
 
 {% block content %}
 {% load bootstrap %}
 
 <div class="row">	
 	<div class="col-md-4 col-md-offset-4">
-		<h1>Add document</h1>
-		<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+		<h1>Add usergroup</h1>
+		<form method="post" action="">{% csrf_token %}
 			{{ form | bootstrap }}
 			<input type="submit" value="Submit" class="btn btn-success"/>
 		</form>

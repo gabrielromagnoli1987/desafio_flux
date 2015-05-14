@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Usergroups{% endblock %}
+
+{% block content %}
+
+<h1>Usergroups</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>    
+  </tr>
+{% for usergroup in usergroups %}
+	<tr>
+	    <td>{{ usergroup.name }}</td>
+	    <td>{{ usergroup.description }}</td>
+	    <td><a href="{% url 'usergroups:edit' usergroup.id %}" class="btn btn-warning">Edit</a></td>
+	    <td><a href="{% url 'usergroups:delete' usergroup.id %}" class="btn btn-danger">Delete</a></td>
+  	</tr>
+{% endfor %}
+</table>
+
+<p><a href="{% url 'usergroups:add' %}" class="btn btn-success">Add</a></p>
+
+{% endblock %}

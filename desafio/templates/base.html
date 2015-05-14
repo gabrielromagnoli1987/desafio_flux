@@ -42,6 +42,7 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home:home' %}">Home</a></li>
             <li><a href="{% url 'documents:documents' %}">Documents</a></li>
+            <li><a href="{% url 'usergroups:usergroups' %}">Usergroups</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
