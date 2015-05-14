@@ -5,11 +5,13 @@
 {% block content %}
 {% load bootstrap %}
 
-<div class="">
-	<form method="post" action="">{% csrf_token %}
-		{{ user_form | bootstrap }}
-		<input type="submit" value="Submit" class="btn btn-primary"/>
-	</form>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<form method="post" action="">{% csrf_token %}
+			{{ user_form | bootstrap }}
+			<input type="submit" value="Submit" class="btn btn-primary"/>
+		</form>
+	</div>
 </div>
 
 {% endblock %}
