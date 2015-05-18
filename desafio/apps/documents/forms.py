@@ -8,4 +8,4 @@ class DocumentForm(ModelForm):
     
     class Meta:
         model = Document
-        fields = ['name', 'description', 'type', 'owner', 'file']        
+        fields = ['name', 'description', 'type', 'owner', 'user_group', 'file']        

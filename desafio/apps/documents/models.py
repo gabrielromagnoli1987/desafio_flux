@@ -23,7 +23,7 @@ class Document(models.Model):
     type = models.CharField(max_length=7, choices=TYPES)
     date = models.DateTimeField()
     owner = models.ForeignKey(User)
-    user_group = models.ForeignKey(UserGroup, blank=True)
+    user_group = models.ForeignKey(UserGroup, blank=True, null=True)
     file = models.FileField()
     
     def __str__(self):

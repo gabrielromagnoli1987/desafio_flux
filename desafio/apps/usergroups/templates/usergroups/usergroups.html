@@ -16,7 +16,7 @@
 	    <td>{{ usergroup.name }}</td>
 	    <td>{{ usergroup.description }}</td>
 	    <td><a href="{% url 'usergroups:edit' usergroup.id %}" class="btn btn-warning">Edit</a></td>
-	    <td><a href="{% url 'usergroups:delete' usergroup.id %}" class="btn btn-danger">Delete</a></td>
+	    <td><a href="{% url 'usergroups:delete' usergroup.id %}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
   	</tr>
 {% endfor %}
 </table>

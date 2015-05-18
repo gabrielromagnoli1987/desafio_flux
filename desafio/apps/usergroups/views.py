@@ -46,7 +46,7 @@ def edit(request, usergroup_id):
         # check whether it's valid:
         if form.is_valid():            
             # process the data in form.cleaned_data as required
-            usergroup = form.save()                        
+            usergroup = form.save()
             
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('usergroups:usergroups'))

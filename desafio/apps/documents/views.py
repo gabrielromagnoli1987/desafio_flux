@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
@@ -10,13 +11,16 @@ from documents.models import Document
 
 
 def documents(request):
-    documents = Document.objects.all()    
+    documents = Document.objects.all()
     return render(request, "documents/documents.html", {'documents': documents})
 
 
 def detail(request, document_id):
     document = get_object_or_404(Document, pk=document_id)
-    return render(request, "documents/detail.html", {'document': document})
+    users = None
+    if document.user_group:
+        users = document.user_group.user_set.all()    
+    return render(request, "documents/detail.html", {'document': document, 'users': users})
 
 
 def add(request):
@@ -40,3 +44,31 @@ def add(request):
         form = DocumentForm()
 
     return render(request, 'documents/add.html', {'form': form})
+
+
+@login_required()
+def delete(request, document_id):
+    document = get_object_or_404(Document, pk=document_id)    
+    if document.owner == request.user:
+        document.delete()
+    return HttpResponseRedirect(reverse('documents:documents'))
+
+
+def edit(request, document_id):
+    document = get_object_or_404(Document, pk=document_id)
+    
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = DocumentForm(request.POST, instance=document)
+        # check whether it's valid:
+        if form.is_valid():            
+            # process the data in form.cleaned_data as required
+            document = form.save()
+            
+            # redirect to a new URL:
+            return HttpResponseRedirect(reverse('documents:documents'))
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = DocumentForm(instance=document)
+        return render(request, 'documents/edit.html', {'form': form})

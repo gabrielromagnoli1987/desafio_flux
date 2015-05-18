@@ -19,8 +19,10 @@
 	    <td>{{ document.date }}</td>
 	    <td>{{ document.type }}</td>
 	    <td>{{ document.owner }}</td>
-	    <td><a href="{{ document.file.url }}">Download</a></td>
-	    <td><a href="{% url 'documents:detail' document.id %}">Detail</a></td>
+	    <td><a href="{{ document.file.url }}" class="btn btn-success">Download</a></td>
+	    <td><a href="{% url 'documents:detail' document.id %}" class="btn btn-primary">Detail</a></td>	    
+	    <td><a href="{% url 'documents:edit' document.id %}" class="btn btn-warning">Edit</a></td>
+	    <td><a href="{% url 'documents:delete' document.id %}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
   	</tr>
 {% endfor %}
 </table>
